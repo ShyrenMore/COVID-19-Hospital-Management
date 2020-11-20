@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block contentTitle %}
+    Patient List
+{% endblock contentTitle %}
+
+{% block content %}
+
+    {% comment %} 1)name, 2)bed number, 3)status: critical, less crtical, recovering, recovered
+        4)edit option, will display modal that will contain, bed number will change to NA once recovered 
+     {% endcomment %}
+{% endblock content %}

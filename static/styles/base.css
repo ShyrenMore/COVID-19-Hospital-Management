@@ -1,12 +1,96 @@
-body
-{
+body{
+    background: #fffefe;
+    min-height: 100vh;
+    overflow-x: hidden;
     font-family:Lato,'Helvetica Neue',Helvetica,Arial,sans-serif;
-    background: #25bb32;
 }
 
-h1,h2,h3,h4,h5,h6
-{
-    font-family:Lato,'Helvetica Neue',Helvetica,Arial,sans-serif;
-    font-weight:700
+.vertical-nav{
+    background: #6d19fc !important;
+    min-width: 17rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
 }
 
+.page-content{
+    width: calc(100% -17rem);   /*same as vertical nav width*/
+    margin-left: 17rem;
+    transition: all 0.4s;
+}
+
+#sidebar.active{
+    margin-left: -17rem;
+}
+
+#content.active{
+    width: 100%;
+    margin: 0;
+}
+
+.seperator{
+    margin: 3rem 0;
+    border-bottom: 1px dashed #000000;
+}
+
+.nav-link{
+    text-transform: capitalize;
+}
+
+.nav-link:hover{
+    background: #5a01f5ee;
+}
+
+.text-primary{
+    color: #fff !important;
+}
+
+@media (max-width: 768px){
+    #sidebar{
+        margin-left: -17rem;
+    }
+    #sidebar.active{
+        margin-left: 0;
+    }
+    #content{
+        width:100%;
+        margin: 0;
+    }
+    #content.active{
+        margin-left: 17rem;
+        width: calc(100% - 17rem);
+    }
+}
+
+.border-left-info{
+border-left: 0.25rem solid #36b9cc !important;
+}
+
+.border-left-warning{
+border-left: 0.25rem solid #f6c23e !important;
+}
+
+.border-left-success {
+  border-left: 0.25rem solid #1cc88a !important;
+}
+
+.border-left-danger {
+  border-left: 0.25rem solid #e74a3b !important;
+}
+
+.text-gray-300 {
+  color: #54555c !important;
+}
+
+.border-left-primary  {
+  border-left: 0.25rem solid #4e73df !important;
+}
+
+.text-blue {
+    color:  #4e73df !important;
+}
+
+/* patient form css */

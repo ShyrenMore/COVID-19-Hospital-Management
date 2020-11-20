@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 # Create your views here.
 
-def index(response):
-    return render(response, 'main/app.html')
+def dashboard(response):
+    return render(response, 'main/dashboard.html', {})
+
+def add_patient(response):
+    return render(response, 'main/add_patient.html', {})

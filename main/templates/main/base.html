@@ -34,6 +34,7 @@
       href="{% static 'styles/base.css' %}"
       type="text/css"
     />
+    <link rel="stylesheet" href="{% static 'styles/patient.css' %}">
     
     <!-- google api font -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -44,10 +45,80 @@
 
   <body>
 
-    <div class="container">
-        {% block content %}
-        {% endblock content %}
-    </div>  
+
+<div class="vertical-nav" id="sidebar">
+
+	<!-- staff profile -->
+	<div class="py-4 px-3 mb-4">
+		<!-- staff photo -->
+		<div class="media d-flex align-items-center">
+			<img src="./Capture9.PNG" alt="" width="80" height="100" class="mr-3 rounded-circle img-thumbnail shadow-sm border-0">
+			<div class="media-body text-white">
+				<h4>Staff name</h4>
+				<p class="font-weight-normal mb-0">
+					Role: 
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- greeting -->
+	<p class="text-white font-weight-bold px-3 pb-4 mb-0">
+		Hello {{user}}
+	</p>
+
+	<!-- refirect dashboard -->
+	<p class="text-gray font-weight-bold px-3 pb-4 mb-0">
+		<a href="{% url 'dashboard' %}" class="nav-link text-white">
+			<i class="fa fa-th-large mr-3 text-primary"></i> Dashboard</a>
+	</p>
+
+	<ul class="nav flex-column mb-0">
+		<li class="nav-item">
+			<a href="#" class="nav-link text-white">
+				<i class="fa fa-address-card mr-3 text-primary fa-fw">               </i>View patient list 
+			</a>
+		</li>
+		
+		<li class="nav-item">
+			<a href="{% url 'add_patient' %}" class="nav-link text-white">
+				<i class="fa fa-plus mr-3 text-primary fa-fw"></i>Add patient
+			</a>
+		</li>
+
+		<li class="nav-item">
+			<a href="#" class="nav-link text-white">
+				<i class="fa fa-sign-out-alt mr-3 text-primary fa-fw"></i>Logout
+			</a>
+		</li>
+	</ul>
+</div>  
+    <!-- end of navbar -->
+
+    <div class="page-content p-5" id="content">
+        <!-- toggle button -->
+        <button id="sidebarCollapse" class="btn btn-light bg-dark rounded-pill shadow-sm px-4 mb-4" type="button">
+            <i class="fa fa-bars mr-2 text-primary"></i>
+            <small class="font-weight-bold text-primary">
+                Toggle
+            </small>
+        </button>
+		
+		<h2 class="display-4 ">{% block contentTitle %}{% endblock contentTitle %}
+		</h2>
+
+		<div class="seperator"></div>
+		{% block content %}
+			<div class="container-fluid">
+				
+				<!-- Content Row -->
+				<div class="row">
+				</div>
+			</div>
+		{% endblock content %}
+			
+    </div>
+    
 
         <!-- boostrap js links -->
     <script
@@ -62,6 +133,6 @@
     ></script>
 
     {% comment %} custom js file {% endcomment %}
-    <script src="{% static 'scripts/test1.js' %}"></script>
+    <script src="{% static 'scripts/base.js' %}"></script>
   </body>
 </html>
