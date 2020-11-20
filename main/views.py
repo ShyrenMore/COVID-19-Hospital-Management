@@ -7,3 +7,6 @@ def dashboard(response):
 
 def add_patient(response):
     return render(response, 'main/add_patient.html', {})
+
+def patient(response):
+    return render(response, 'main/patient.html', {})
