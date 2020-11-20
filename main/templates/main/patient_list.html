@@ -10,11 +10,29 @@
     {% comment %} 1)name, 2)bed number, 3)status: critical, less crtical, recovering, recovered
         4)edit option, will display modal that will contain, bed number will change to NA once recovered 
      {% endcomment %}
-     {% for patient in patients %}
-        {{ patient.name }} <br>
-        {{ patient.bed_num }} <br>
-        {{ patient.status }} <br>
-        <a href="{  }"></a>
-     {% endfor %}
+     <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <th><h3>Name</h3></th>
+                <th><h3>Bed no</h3></th>
+                <th><h3>Status</h3></th>
+                <th><h3>Edit</h3></th>
+            </thead>
+
+            <tbody>
+                <tr class="mx-auto">
+                    {% for patient in patients %}
+                    <td scope="row"><h5>{{ patient.name }}</h5></td>
+                    <td><h5>{{ patient.bed_num }}</h5></td>
+                    <td><h5>{{ patient.status }}</h5></td>
+                    <td><a href="{% url 'patient' %}" class="btn btn-purple"><h5>Update</h5></a></td>
+
+                </tr>
+                
+            </tbody>
+        </table>
+    
+    </div>
+    {% endfor %}
 
 {% endblock content %}
