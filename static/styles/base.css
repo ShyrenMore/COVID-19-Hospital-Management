@@ -93,4 +93,13 @@ border-left: 0.25rem solid #f6c23e !important;
     color:  #4e73df !important;
 }
 
-/* patient form css */
+.btn-purple{
+    background: #6d19fc;
+    color: #ffffff;  
+    height: 2rem; 
+    padding-top: 2px;
+}
+
+.btn-purple:hover{
+    color: white;
+}
