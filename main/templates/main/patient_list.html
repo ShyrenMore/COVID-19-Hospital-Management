@@ -10,4 +10,11 @@
     {% comment %} 1)name, 2)bed number, 3)status: critical, less crtical, recovering, recovered
         4)edit option, will display modal that will contain, bed number will change to NA once recovered 
      {% endcomment %}
+     {% for patient in patients %}
+        {{ patient.name }} <br>
+        {{ patient.bed_num }} <br>
+        {{ patient.status }} <br>
+        <a href="{  }"></a>
+     {% endfor %}
+
 {% endblock content %}
