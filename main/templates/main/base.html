@@ -34,12 +34,18 @@
       href="{% static 'styles/base.css' %}"
       type="text/css"
     />
+
+    <!-- jquery autocomplete css -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
     {% comment %} <link rel="stylesheet" href="{% static 'styles/patient.css' %}"> {% endcomment %}
     
     <!-- google api font -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-
+    <!-- .autocomplete -->
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <title>{% block title %} AppName {% endblock %}</title>
   </head>
 
@@ -52,7 +58,6 @@
 	<div class="py-4 px-3 mb-4">
 		<!-- staff photo -->
 		<div class="media d-flex align-items-center">
-			<img src="./Capture9.PNG" alt="" width="80" height="100" class="mr-3 rounded-circle img-thumbnail shadow-sm border-0">
 			<div class="media-body text-white">
 				<h4>Staff name</h4>
 				<p class="font-weight-normal mb-0">
@@ -107,7 +112,7 @@
 		<h2 class="display-4 ">{% block contentTitle %}{% endblock contentTitle %}
 		</h2>
 
-		<div class="seperator"></div>
+		<div class="seperator mt-1 mb-4"></div>
 		{% block content %}
 			<div class="container-fluid">
 				
@@ -119,7 +124,6 @@
 			
     </div>
     
-
         <!-- boostrap js links -->
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
@@ -132,7 +136,21 @@
       crossorigin="anonymous"
     ></script>
 
-    {% comment %} custom js file {% endcomment %}
-    <script src="{% static 'scripts/base.js' %}"></script>
+    <!-- autocomplete scripts -->
+    <script>
+      /*
+      $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+    */
+    $( function() {
+      $( "#name" ).autocomplete({
+      	source: "{% url 'autosuggest' %}"
+    });
+  	});
+    </script>
+
+    <!-- {% comment %} custom js file {% endcomment %} -->
+    <!-- <script src="{% static 'scripts/base.js' %}"></script> -->
   </body>
 </html>
