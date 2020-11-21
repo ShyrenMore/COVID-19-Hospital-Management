@@ -5,6 +5,6 @@ urlpatterns = [
     # path("", views.index, name="index"),
     path("", views.dashboard, name="dashboard"),
     path("add_patient/", views.add_patient, name="add_patient"),
-    path("patient_list/", views.paitent_list, name="paitent_list"),
-    path("patient/", views.patient, name="patient"),
+    path("patient_list/", views.patient_list, name="patient_list"),
+    path("patient/<str:pk>", views.patient, name="patient"),
 ]

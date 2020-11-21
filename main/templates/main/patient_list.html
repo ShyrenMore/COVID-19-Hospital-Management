@@ -49,7 +49,7 @@
                     <td scope="row"><h5>{{ patient.name }}</h5></td>
                     <td><h5>{{ patient.bed_num }}</h5></td>
                     <td><h5>{{ patient.status }}</h5></td>
-                    <td><a href="{% url 'patient' %}" class="btn btn-purple"><h5>Update</h5></a></td>
+                    <td><a href="/patient/{{patient.id}}" class="btn btn-purple"><h5>Update</h5></a></td>
                 </tr>
     
                 {% endfor %}

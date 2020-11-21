@@ -12,11 +12,15 @@ def dashboard(response):
 def add_patient(response):
     return render(response, 'main/add_patient.html', {})
 
-def patient(response):
-    return render(response, 'main/patient.html', {})
+def patient(response, pk):
+    patient = Patient.objects.get(id=pk)
+    context = {
+        'patient': patient
+    }
+    return render(response, 'main/patient.html', context)
 
 
-def paitent_list(response):
+def patient_list(response):
     patients = Patient.objects.all()
 
     # filtering
