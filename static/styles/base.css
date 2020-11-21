@@ -126,26 +126,20 @@ border-left: 0.25rem solid #f6c23e !important;
 }
 
 /* patient.html  */
-.patient-form .name, .patient-form .number{
+.patient-form .form-field{
     /* position: relative; */
     margin: 32px 0;
-}
-
-
-.row{
-    padding: 0;
 }
 
 .patient-form .input-text{
     /* display: block; */
     width: 100%;
     /* height: 36px; */
-    border-width: 0 0 3px 0;
-    border-color: #5543ca;
+    border-width: 0 0 2px 0;
+    border-color: #6c19fcc2;
     font-size: 18px;
     /* line-height: 26px; */
     font-weight: 400;
-
     transition: border-color 0.2s linear;
 }
 
@@ -155,12 +149,15 @@ border-left: 0.25rem solid #f6c23e !important;
 }
 
 .patient-form .label{
-    margin: 40px 0 0 0 ;
-    font-size: 23px;
-    line-height: 1em;
+    position: absolute;
+    left: 20px;
+    bottom: 11px;
+    font-size: 18px;
+    line-height: 26px;
     font-weight: 400;
     color: #5543ca;
     cursor: text;
+    transition: all 0.4s;
 }
 
 .patient-form .submit-btn{
@@ -170,7 +167,6 @@ border-left: 0.25rem solid #f6c23e !important;
     letter-spacing: 2px;
     font-size: 16px;
     padding: 8px 16px;
-    margin: 50px 0;
     border: none;
     width: 200px;
     cursor: pointer;
@@ -212,4 +208,10 @@ border-left: 0.25rem solid #f6c23e !important;
 .symptoms .symptom > label{
     margin: 10px 0;
     text-align: center;
+}
+
+/* -------------- */
+/* grid box style */
+.grid-box{
+    border-radius: 1px;
 }
