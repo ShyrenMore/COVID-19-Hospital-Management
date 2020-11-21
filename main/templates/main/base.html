@@ -82,7 +82,7 @@
 		<a href="{% url 'dashboard' %}" class="nav-link text-white">
 			<i class="fa fa-th-large mr-3 text-primary"></i> Dashboard</a>
 	</p>
-
+{% if request.user.is_authenticated == True %}
 	<ul class="nav flex-column mb-0">
 		<li class="nav-item">
 			<a href="{% url 'patient_list' %}" class="nav-link text-white">
@@ -95,6 +95,7 @@
 				<i class="fa fa-plus mr-3 text-primary fa-fw"></i>Add patient
 			</a>
 		</li>
+    {% endif %}
     {% if request.user.is_authenticated == False %}
     <li class="nav-item">
 			<a href="{% url 'login' %}" class="nav-link text-white">
