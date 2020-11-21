@@ -11,56 +11,56 @@
     {% csrf_token %}
         
         <div class="container">
-            <div class="patient-form row">
+            <div class="patient-form ">
+                <div class="row">
+                    <div class="form-field col-md-6">
+                        <input type="text" id="name" class="input-text" type="text" name="name" placeholder="Name">
+                    </div>
+
+                    <div class="form-field col-md-6">
+                        <input type="text" id="phone_num" class="input-text" type="text" name="phone_num" placeholder="Phone no.">
+                    </div>
+
+                    <div class="form-field col-md-6">
+                        <input type="text" id="patient_relative_name" class="input-text" type="text" name="patient_relative_name" placeholder="Relative's name">
+                    </div>
+
+                    <div class="form-field col-md-6">
+                        <input type="text" id="patient_relative_contact" class="input-text" type="text" name="patient_relative_contact" placeholder="Relative's contact">
+                    </div>
+
+                    <div class="form-field col-md-12">
+                        <input type="text" id="patient_relative_contact" class="input-text" type="text" name="address" placeholder="Address">
+                    </div>
+
+                    <div class="form-field col-md-6" style="padding-bottom: 4px;">
+                        <input type="text" id="prior_ailments" class="form-control input-text mb-0 p-0 " style="outline:none" type="text" name="prior_ailments" placeholder="Prior ailments if any, eg: Diabetes, Thyroid">
+                    </div>
+
+                    <div class="form-field col-md-4 offset-md-2 mb-4 mx-auto">
+                    <select name="bed_num" class="btn btn-bed" id="bed_num">
+                    {% for bed in beds %}
+                        <option value={{ bed }}>{{ bed }}</option>
+                    {% endfor %}
+                    </div>
+                </div>
                 
-                <div class="form-field col-md-6">
-                    <input type="text" id="name" class="input-text" type="text" name="name" placeholder="Name">
-                </div>
-
-                <div class="form-field col-md-6">
-                    <input type="text" id="phone_num" class="input-text" type="text" name="phone_num" placeholder="Phone no.">
-                </div>
-
-                <div class="form-field col-md-6">
-                    <input type="text" id="patient_relative_name" class="input-text" type="text" name="patient_relative_name" placeholder="Relative's name">
-                </div>
-
-
-                <div class="form-field col-md-6">
-                    <input type="text" id="patient_relative_contact" class="input-text" type="text" name="patient_relative_contact" placeholder="Relative's contact">
-                </div>
-
-                <div class="form-field col-md-12">
-                    <input type="text" id="patient_relative_contact" class="input-text" type="text" name="address" placeholder="Address">
-                </div>
-
-                <div class="form-field col-md-6">
-                    <input type="text" id="prior_ailments" class="form-control" type="text" name="prior_ailments" placeholder="Prior ailments if any, eg: Diabetes, Thyroid">
-                </div>
-
-                <div class="form-field col-md-6">
-                <select name="bed_num" class="input-select" id="bed_num">
-                {% for bed in beds %}
-                    <option value={{ bed }}>{{ bed }}</option>
-                {% endfor %}
-  
-
-                </div>
-
+            </div>
+            <div class="row">
                 <div class="form-field col-md-6">
                     <input type="date" id="dob" class="input-text" type="date" name="dob">
                 </div>
 
                 <div class="form-field col-md-6">
-                    <input type="status" id="status" class="input-text" type="text" name="status" placeholder="Status">
+                    <input type="text" id="status" class="input-text" type="text" name="status" placeholder="Status">
                 </div>
             </div>
 
 
             <!-- symptons field -->
-            <div class="patient-form row">
+            <div class="patient-form row d-flex">
                 <div class="symptoms row">
-                <div class="symptoms-label col-12 text-center">Symptoms</div><br>
+                <div class="symptoms-label col-12 text-center mt-0">Symptoms</div><br>
                 
                 <!-- <div class="row"> -->
                     <div class="common-symptoms col-md-4">
