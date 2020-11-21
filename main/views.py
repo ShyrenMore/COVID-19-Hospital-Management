@@ -6,25 +6,63 @@ from .filters import PatientFilter
 
 # Create your views here.
 
-def dashboard(response):
-    return render(response, 'main/dashboard.html', {})
+def dashboard(request):
+    return render(request, 'main/dashboard.html', {})
 
-def add_patient(response):
-    return render(response, 'main/add_patient.html', {})
+def add_patient(request):
+    beds = Bed.objects.filter(occupied=False)
 
-def patient(response, pk):
+    if request.method == "POST":
+        name = request.POST['name']
+        phone_num = request.POST['phone_num']
+        patient_relative_name = request.POST['patient_relative_name']
+        patient_relative_contact = request.POST['patient_relative_contact']
+        address = request.POST['address']
+        symptoms = request.POST['symptoms']
+        prior_ailments = request.POST['prior_ailments']
+        bed_num_sent = request.POST['bed_num']
+        bed_num = Bed.objects.get(bed_number=bed_num_sent)
+        dob = request.POST['dob']
+        status = request.POST['status']
+        print(request.POST)
+        patient = Patient.objects.create(
+            name = name,
+        phone_num = phone_num,
+        patient_relative_name = patient_relative_name,
+        patient_relative_contact = patient_relative_contact, 
+        address = address, 
+        symptoms = symptoms, 
+        prior_ailments = prior_ailments, 
+        bed_num = bed_num,
+        dob = dob, 
+        status = status 
+        )
+        patient.save()
+
+        bed = Bed.objects.get(bed_number=bed_num_sent)
+        bed.occupied = True
+        bed.save()
+        id = patient.id
+        return redirect(f"/patient/{id}")
+        
+    context = {
+        'beds': beds
+    }
+    return render(request, 'main/add_patient.html', context)
+
+def patient(request, pk):
     patient = Patient.objects.get(id=pk)
     context = {
         'patient': patient
     }
-    return render(response, 'main/patient.html', context)
+    return render(request, 'main/patient.html', context)
 
 
-def patient_list(response):
+def patient_list(request):
     patients = Patient.objects.all()
 
     # filtering
-    myFilter = PatientFilter(response.GET, queryset=patients)
+    myFilter = PatientFilter(request.GET, queryset=patients)
 
     patients = myFilter.qs
     context = {
@@ -32,12 +70,12 @@ def patient_list(response):
         'myFilter': myFilter
     }
 
-    return render(response, 'main/patient_list.html', context)
+    return render(request, 'main/patient_list.html', context)
 
 '''
-def autocomplete(response):
-    if patient in response.GET:
-        name = Patient.objects.filter(name__icontains=response.GET.get(patient))
+def autocomplete(request):
+    if patient in request.GET:
+        name = Patient.objects.filter(name__icontains=request.GET.get(patient))
         name = ['js', 'python']
         
         names = list()
@@ -46,5 +84,5 @@ def autocomplete(response):
         for patient_name in name:
             names.append(patient_name.name)
         return JsonResponse(names, safe=False)
-    return render (response, 'main/patient_list.html')
+    return render (request, 'main/patient_list.html')
 '''
