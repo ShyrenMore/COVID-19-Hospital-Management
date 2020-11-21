@@ -25,6 +25,8 @@ class Patient(models.Model):
     prior_ailments = models.TextField()
     bed_num = models.ForeignKey("Bed", on_delete=models.CASCADE)
     dob = models.DateField(null=True)
+    # doctors_notes = models.TextField(null=True)
+    # doctors_visiting_time = models.CharField(null=True, max_length=50)
     status = models.CharField(max_length=50)
     
     def __str__(self):

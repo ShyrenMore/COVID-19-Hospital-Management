@@ -17,7 +17,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                     Recovereed</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">50</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ recovered_count }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-heart fa-2x text-gray-300"></i>
@@ -35,7 +35,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                     Admitted</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">270</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ patient_count }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-stethoscope fa-2x text-gray-300"></i>
@@ -93,7 +93,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-blue text-uppercase mb-1">
                                     Bed availability</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">200</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{beds_available}}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-bed fa-2x text-gray-300"></i>

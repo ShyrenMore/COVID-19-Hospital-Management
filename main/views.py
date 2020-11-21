@@ -7,7 +7,18 @@ from .filters import PatientFilter
 # Create your views here.
 
 def dashboard(request):
-    return render(request, 'main/dashboard.html', {})
+    patients = Patient.objects.all()
+    patient_count = patients.count()
+    patients_recovered = Patient.objects.filter(status="Recovered")
+    recovered_count = patients_recovered.count()
+    beds_available = Bed.objects.filter(occupied=False).count()
+    context = {
+        'patient_count': patient_count,
+        'recovered_count': recovered_count,
+        'beds_available': beds_available
+    }
+    print(patient_count)
+    return render(request, 'main/dashboard.html', context)
 
 def add_patient(request):
     beds = Bed.objects.filter(occupied=False)
