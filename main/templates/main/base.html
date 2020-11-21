@@ -59,17 +59,22 @@
 		<!-- staff photo -->
 		<div class="media d-flex align-items-center">
 			<div class="media-body text-white">
-				<h4>Staff name</h4>
+      {% if request.user.is_authenticated %}
 				<p class="font-weight-normal mb-0">
-					Role: 
+					Role: {% if request.user.is_superuser == True %}
+        Admin
+        {% elif request.user.is_superuser == False and request.user.is_staff == True  %}
+          Staff
+      {% endif %}
 				</p>
+        {% endif %}
 			</div>
 		</div>
 	</div>
 
 	<!-- greeting -->
 	<p class="text-white font-weight-bold px-3 pb-4 mb-0">
-		Hello {{user}}
+		Hello {{user.first_name}}
 	</p>
 
 	<!-- refirect dashboard -->
@@ -81,7 +86,7 @@
 	<ul class="nav flex-column mb-0">
 		<li class="nav-item">
 			<a href="{% url 'patient_list' %}" class="nav-link text-white">
-				<i class="fa fa-address-card mr-3 text-primary fa-fw">               </i>View patient list 
+				<i class="fa fa-address-card mr-3 text-primary fa-fw"></i>View patient list 
 			</a>
 		</li>
 		
@@ -90,12 +95,19 @@
 				<i class="fa fa-plus mr-3 text-primary fa-fw"></i>Add patient
 			</a>
 		</li>
-
+    {% if request.user.is_authenticated == False %}
+    <li class="nav-item">
+			<a href="{% url 'login' %}" class="nav-link text-white">
+				<i class="fa fa-sign-in-alt mr-3 text-primary fa-fw"></i>Login
+			</a>
+		</li>
+    {% else %}
 		<li class="nav-item">
-			<a href="" class="nav-link text-white">
+			<a href="{% url 'logout' %}" class="nav-link text-white">
 				<i class="fa fa-sign-out-alt mr-3 text-primary fa-fw"></i>Logout
 			</a>
 		</li>
+    {% endif %}
 	</ul>
 </div>  
     <!-- end of verical nav -->
@@ -144,7 +156,7 @@
     });
     */
     $( function() {
-      $( "#name" ).autocomplete({
+      $( "#id_name" ).autocomplete({
       	source: "{% url 'autosuggest' %}"
     });
   	});

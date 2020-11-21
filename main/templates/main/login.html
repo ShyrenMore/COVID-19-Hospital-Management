@@ -33,7 +33,7 @@
         <!-- google api font -->
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-        <link rel="stylesheet" href="{% static '/css/login.css' %}">
+        <link rel="stylesheet" href="{% static 'styles/login.css' %}">
         <title>Login</title>
     </head>
 
@@ -43,26 +43,28 @@
 
             <h3 class="heading">Login</h3>
             <div class="login-form">
+                <form action="" method="post">
+                {% csrf_token %}
+                    <div class="username">
+                        <div class="name row">
+                            <i class="fas fa-user-shield col-2"></i>
+                            <input id="name" class="input-text col-9" type="text" name="username" placeholder="Username">
+                        </div>
+                    </div>
                 
-                <div class="username">
-                    <div class="name row">
-                        <i class="fas fa-user-shield col-2"></i>
-                        <input type="text" id="name" class="input-text col-9" type="text" name="" placeholder="Username">
+                    <div class="password">
+                        <div class="pass row">
+                            <i class="fas fa-key col-2"></i>
+                            <input id="password" class="input-text col-9" type="password" name="password" placeholder="Password">
+                        </div>
                     </div>
-                </div>
-            
-                <div class="password">
-                    <div class="pass row">
-                        <i class="fas fa-key col-2"></i>
-                        <input type="text" id="password" class="input-text col-9" type="text" name="" placeholder="Password">
+                    
+                    <div class="submit-button row">
+                        <div class="form-field col-lg">
+                            <button type="submit" class="submit-btn btn btn-block">Submit</button>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="submit-button row">
-                    <div class="form-field col-lg">
-                        <button type="button" class="submit-btn btn btn-block">Submit</button>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </body>

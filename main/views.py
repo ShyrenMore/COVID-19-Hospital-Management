@@ -2,9 +2,38 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from .models import *
 from .filters import PatientFilter
+from django.contrib.auth.models import User, auth
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 # PatientFilter = OrderFilter
 
-# Create your views here.
+# Create your vie
+
+def login(request):
+    if request.user.is_authenticated:
+        return redirect('/')
+    else:
+        if request.method == 'POST':
+            username = request.POST['username']
+            password = request.POST['password']
+            user = auth.authenticate(username=username, password=password)
+            if user is not None:
+                auth.login(request, user)
+                return redirect('/')
+            else:
+                messages.info(request, 'Invalid username or password')
+                return redirect('login')
+        else:
+            return render(request, 'main/login.html')
+
+
+@login_required(login_url='login')
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
+
+
+
 
 def dashboard(request):
     patients = Patient.objects.all()
@@ -105,7 +134,7 @@ def autocomplete(request):
 
 def autosuggest(response):
     query_original = response.GET.get('term')
-    queryset = Patient.objects.filter(name=query_original)
+    queryset = Patient.objects.filter(name__icontains=query_original)
     mylist = []
     mylist += [x.name for x in queryset]
     return JsonResponse(mylist, safe=False)

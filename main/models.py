@@ -39,4 +39,4 @@ class Bed(models.Model):
         return self.bed_number
 
 
-class Doctor(models.)
+# class Doctor(models.Model)
