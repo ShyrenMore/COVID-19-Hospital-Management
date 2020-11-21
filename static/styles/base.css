@@ -103,3 +103,24 @@ border-left: 0.25rem solid #f6c23e !important;
 .btn-purple:hover{
     color: white;
 }
+
+#id_name{
+    margin-right: 0.5rem;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #4e73df;
+}
+
+#id_bed_num{
+        margin-right: 0.5rem;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #4e73df;
+}
+
+#id_status{
+    margin-right: 0.5rem;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #4e73df;
+}
