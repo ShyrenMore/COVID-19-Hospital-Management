@@ -37,3 +37,6 @@ class Bed(models.Model):
     occupied = models.BooleanField()
     def __str__(self):
         return self.bed_number
+
+
+class Doctor(models.)

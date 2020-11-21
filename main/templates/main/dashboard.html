@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">1</div>
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">0</div>
                                     </div>
                                 </div>
                             </div>
@@ -124,54 +124,23 @@
         <div><h3 class="font-weight-bold my-3">Beds availability</h3></div>
         <div class="row">
             <!-- .bg-success.grid-box.my-2.mx-2  -->
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3">
-            </div>
+            {% comment %} <div class="bg-success grid-box my-2 mx-2 py-3 px-3"> {% endcomment %}
+            {% comment %} </div> {% endcomment %}
 
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
-            <div class="bg-success grid-box my-2 mx-2 py-3 px-3"></div>
+            {% for bed in beds %}
+                <div class="
+                
+                
+                {% if bed.occupied == True %}
+                bg-danger 
+                {% elif bed.occupied == False %}
+                bg-success
+                {% endif %}
+                
+                
+                grid-box my-2 mx-2 py-3 px-3 text-white">{{ bed }}</div>
+            {% endfor %}
+            
         </div>
     </div>
 
