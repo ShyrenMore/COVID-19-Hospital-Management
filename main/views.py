@@ -86,3 +86,10 @@ def autocomplete(request):
         return JsonResponse(names, safe=False)
     return render (request, 'main/patient_list.html')
 '''
+
+def autosuggest(response):
+    query_original = response.GET.get('term')
+    queryset = Patient.objects.filter(name=query_original)
+    mylist = []
+    mylist += [x.name for x in queryset]
+    return JsonResponse(mylist, safe=False)
