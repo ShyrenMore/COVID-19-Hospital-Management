@@ -104,11 +104,19 @@ def patient(request, pk):
         doctor = request.POST['doctor']
         doctor_time = request.POST['doctor_time']
         doctor_notes = request.POST['doctor_notes']
+        mobile = request.POST['mobile']
+        mobile2  request.POST['mobile2']
+        relativeName = request.POST['relativeName']
+        address  = request.POST['location']
         print(doctor_time)
         print(doctor_notes)
         status = request.POST['status']
         doctor = Doctor.objects.get(name=doctor)
         print(doctor)
+        patient.phone_num = mobile
+        patient.patient_relative_contact = mobile2
+        patient.patient_relative_name = relativeName
+        patient.address = address
         patient.doctor = doctor
         patient.doctors_visiting_time = doctor_time
         patient.doctors_notes = doctor_notes
