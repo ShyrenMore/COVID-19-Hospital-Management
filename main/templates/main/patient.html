@@ -89,13 +89,26 @@
 
 						<div class="col-md-5">
 							<h6>Bed number</h6>
-							<label for="bed_num">
+							<label for="bed_num" class="mb-0">
 							<h4>{{patient.bed_num}}</h4>
 							</label>
 						</div>
 
-						<div class="col-md-5">
-							<h6>Status</h6>
+						<div class="col-md-6">
+
+
+						{% comment %} 
+						<label for="symptoms" class="mb-0"><h6>Symptoms</h6></label>
+							<input
+								type="text"
+								class="input-text"
+								name="symptons"
+								id="symptons"
+								value="{{patient.symptoms}}"
+							/>
+						 {% endcomment %}
+						 	<label for="status" class="mb-0">
+							<h6>Status</h6></label>
 							<input
 								type="text"
 								class="input-text"
@@ -106,8 +119,10 @@
 							
 						</div>
 
-						<div class="col-md-5">
+						<div class="col-md-6">
+							<label for="doctor" class="mb-0">
 							<h6>Doctor Assigned: </h6>
+							</label>
 							<input
 								type="text"
 								class="input-text"
@@ -117,8 +132,10 @@
 							/>
 						</div>
 
-						<div class="col-md-5">
+						<div class="col-md-6">
+							<label for="doctor_time" class="mb-0 mt-4">
 							<h6>Doctor Visiting Time: </h6>
+							</label>
 							<input
 								type="text"
 								class="input-text"
@@ -128,15 +145,18 @@
 							/>
 						</div>
 
-						<div class="col-md-5">
+						<div class="col-md-6">
+							<label for="doctor_notes" class="mb-0 mt-4">
 							<h6>Doctor Notes: </h6>
-							<label for="bed_num">
+							</label>
+							<!-- <label for="bed_num"> -->
 							<textarea
 								class="input-text"
 								name="doctor_notes"
 								id="doctor_notes"
 								{{patient.doctors_notes}}
 							>{{patient.doctors_notes}}</textarea>
+						
 						</div>
 
 					</div>

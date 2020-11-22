@@ -105,7 +105,7 @@ def patient(request, pk):
         doctor_time = request.POST['doctor_time']
         doctor_notes = request.POST['doctor_notes']
         mobile = request.POST['mobile']
-        mobile2  request.POST['mobile2']
+        mobile2 = request.POST['mobile2']
         relativeName = request.POST['relativeName']
         address  = request.POST['location']
         print(doctor_time)
