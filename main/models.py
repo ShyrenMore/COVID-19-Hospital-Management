@@ -29,6 +29,8 @@ class Patient(models.Model):
     doctors_notes = models.TextField(null=True, blank=True)
     doctors_visiting_time = models.CharField(null=True, max_length=50, blank=True)
     status = models.CharField(max_length=50)
+    allot_ventilator = models.BooleanField(default=False)
+    ventilator = models.ForeignKey("Ventilator", on_delete=models.CASCADE, null=True)
     
     def __str__(self):
         return self.name
@@ -38,6 +40,13 @@ class Bed(models.Model):
     occupied = models.BooleanField()
     def __str__(self):
         return self.bed_number
+
+
+class Ventilator(models.Model):
+    ventilator_number = models.CharField(max_length=50)
+    alloted = models.BooleanField()
+    def __str__(self):
+        return self.ventilator_number
 
 
 class Doctor(models.Model):
