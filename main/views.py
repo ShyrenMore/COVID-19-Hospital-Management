@@ -44,12 +44,16 @@ def dashboard(request):
     recovered_count = patients_recovered.count()
     beds = Bed.objects.all()
     beds_available = Bed.objects.filter(occupied=False).count()
+    ventilators = Ventilator.objects.all()
+    ventilators_available = Ventilator.objects.filter(occupied=False).count()
     context = {
         'patient_count': patient_count,
         'recovered_count': recovered_count,
         'beds_available': beds_available,
         'deceased_count':deceased_count,
-        'beds':beds
+        'beds':beds,
+        'vetilators': ventilators,
+        'ventilators_available': ventilators_available
     }
     print(patient_count)
     return render(request, 'main/dashboard.html', context)
