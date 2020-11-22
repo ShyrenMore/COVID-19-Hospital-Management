@@ -233,3 +233,8 @@ border-left: 0.25rem solid #f6c23e !important;
 .grid-box{
     border-radius: 1px;
 }
+
+li .nav-item::marker{
+    list-style-type: none;
+    display: none;
+}

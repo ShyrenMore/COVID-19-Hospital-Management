@@ -45,7 +45,7 @@ def dashboard(request):
     beds = Bed.objects.all()
     beds_available = Bed.objects.filter(occupied=False).count()
     ventilators = Ventilator.objects.all()
-    ventilators_available = Ventilator.objects.filter(occupied=False).count()
+    ventilators_available = Ventilator.objects.filter(alloted=False).count()
     context = {
         'patient_count': patient_count,
         'recovered_count': recovered_count,
