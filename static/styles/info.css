@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    /* background-color:  */
+}
+
+.background-image{
+    background-image: url(../images/virus.jpg);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+}
+
+
+.navbar a, .navbar h3{
+    z-index: 2;
+} 
+
+.title-body > a{
+    position: absolute;
+    width: fit-content;
+    margin-left: 2%;
+    margin-right: 0%;
+    font-size: 2em;
+    font-weight: 500;
+    color: white;
+
+    z-index: 1;
+}
+
+.title-body{
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+}
+
+.title-body > h3{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 0%;
+    font-size: 1.6em;
+    font-weight: 300;
+}
+
+.title-body > img{
+    width: 60%;
+    height: auto;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+.svg-curve{
+    position: relative;
+    transform: rotate(90deg) scaleY(4) translateY(9%) translateX(20%);
+}
+
+.title-body > .heading > p{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 20%;
+    position: relative;
+    top: 100px;
+    box-sizing: border-box;
+
+    line-height: 0.9em;
+    font-size: 7rem;
+    font-family: 'Dancing Script';
+    /* color: white; */
+    /* mix-blend-mode: difference; */
+    z-index: 2;
+}
+
+.container{
+    /* backdrop-filter: blur(7px); */
+    margin-top: 100px;
+}
+
+a, a:hover {
+    color: #212529;
+}
+  
+a:hover {
+    text-decoration: none;
+}
+  
+.block {
+    height: 80vh;
+    /* background: rgb(255, 255, 255); */
+    margin-bottom: 30px;
+}
+ 
+.label {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+
+    overflow: hidden;
+}
+
+.item-container img{
+    width: 100%;
+    height: 80vh;
+    object-fit: contain;
+}
+
+.description{
+    font-size: 1.7em;
+    color: white;
+}

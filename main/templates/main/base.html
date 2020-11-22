@@ -94,8 +94,15 @@
 			<a href="{% url 'add_patient' %}" class="nav-link text-white">
 				<i class="fa fa-plus mr-3 text-primary fa-fw"></i>Add patient
 			</a>
-		</li>
+    </li>
+    
     {% endif %}
+    <li class="nav-item">
+      <a href="{% url 'info' %}" class="nav-link text-white">
+        <i class="fa fa-plus mr-3 text-primary fa-fw"></i>Info
+      </a>
+    </li>
+    
     {% if request.user.is_authenticated == False %}
     <li class="nav-item">
 			<a href="{% url 'login' %}" class="nav-link text-white">

@@ -160,16 +160,19 @@ def autocomplete(request):
     return render (request, 'main/patient_list.html')
 '''
 
-def autosuggest(response):
-    query_original = response.GET.get('term')
+def autosuggest(request):
+    query_original = request.GET.get('term')
     queryset = Patient.objects.filter(name__icontains=query_original)
     mylist = []
     mylist += [x.name for x in queryset]
     return JsonResponse(mylist, safe=False)
 
-def autodoctor(response):
-    query_original = response.GET.get('term')
+def autodoctor(request):
+    query_original = request.GET.get('term')
     queryset = Doctor.objects.filter(name__icontains=query_original)
     mylist = []
     mylist += [x.name for x in queryset]
     return JsonResponse(mylist, safe=False)
+
+def info(request):
+    return render(request, "main/info.html")
