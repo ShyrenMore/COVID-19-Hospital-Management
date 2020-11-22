@@ -136,6 +136,13 @@ border-left: 0.25rem solid #f6c23e !important;
     border-bottom: 2px solid #4e73df;
 }
 
+#id_doctor{
+    margin-right: 0.5rem;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #4e73df;
+}
+
 /* patient.html  */
 .patient-form .form-field{
     /* position: relative; */

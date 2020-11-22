@@ -26,6 +26,7 @@
 	  {% endcomment %}
 
 		<form class="form" action="" method="post" id="registrationForm">
+		{% csrf_token %}
 			<div class="container">
 				<div class="patient-form">
 					<div class="row">
@@ -91,6 +92,51 @@
 							<label for="bed_num">
 							<h4>{{patient.bed_num}}</h4>
 							</label>
+						</div>
+
+						<div class="col-md-5">
+							<h6>Status</h6>
+							<input
+								type="text"
+								class="input-text"
+								name="status"
+								id="status"
+								value="{{patient.status}}"
+							/>
+							
+						</div>
+
+						<div class="col-md-5">
+							<h6>Doctor Assigned: </h6>
+							<input
+								type="text"
+								class="input-text"
+								name="doctor"
+								id="doctor"
+								value="{{patient.doctor}}"
+							/>
+						</div>
+
+						<div class="col-md-5">
+							<h6>Doctor Visiting Time: </h6>
+							<input
+								type="text"
+								class="input-text"
+								name="doctor_time"
+								id="doctor_time"
+								value="{{patient.doctors_visiting_time}}"
+							/>
+						</div>
+
+						<div class="col-md-5">
+							<h6>Doctor Notes: </h6>
+							<label for="bed_num">
+							<textarea
+								class="input-text"
+								name="doctor_notes"
+								id="doctor_notes"
+								{{patient.doctors_notes}}
+							>{{patient.doctors_notes}}</textarea>
 						</div>
 
 					</div>

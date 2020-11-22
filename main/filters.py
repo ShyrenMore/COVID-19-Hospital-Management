@@ -8,4 +8,5 @@ class PatientFilter(django_filters.FilterSet):
         model = Patient
         # fields = ['name', 'bed_num', 'status']
         fields = '__all__'
-        exclude = ['phone_num', 'address', 'prior_ailments', 'dob', 'patient_relative_name', 'patient_relative_contact', 'symptoms']
+        exclude = ['phone_num', 'address', 'prior_ailments', 'dob', 'patient_relative_name', 'patient_relative_contact', 'symptoms', 'doctors_visiting_time', 'doctors_notes']
+        

@@ -56,7 +56,7 @@ def dashboard(request):
 
 def add_patient(request):
     beds = Bed.objects.filter(occupied=False)
-
+    doctors = Doctor.objects.all()
     if request.method == "POST":
         name = request.POST['name']
         phone_num = request.POST['phone_num']
@@ -69,6 +69,7 @@ def add_patient(request):
         bed_num = Bed.objects.get(bed_number=bed_num_sent)
         dob = request.POST['dob']
         status = request.POST['status']
+        doctor = request.POST['doctor']
         print(request.POST)
         patient = Patient.objects.create(
             name = name,
@@ -80,7 +81,8 @@ def add_patient(request):
         prior_ailments = prior_ailments, 
         bed_num = bed_num,
         dob = dob, 
-        status = status 
+        doctor=doctor,
+        status = status
         )
         patient.save()
 
@@ -91,12 +93,29 @@ def add_patient(request):
         return redirect(f"/patient/{id}")
         
     context = {
-        'beds': beds
+        'beds': beds,
+        'doctors': doctors
     }
     return render(request, 'main/add_patient.html', context)
 
 def patient(request, pk):
     patient = Patient.objects.get(id=pk)
+    if request.method == "POST":
+        doctor = request.POST['doctor']
+        doctor_time = request.POST['doctor_time']
+        doctor_notes = request.POST['doctor_notes']
+        print(doctor_time)
+        print(doctor_notes)
+        status = request.POST['status']
+        doctor = Doctor.objects.get(name=doctor)
+        print(doctor)
+        patient.doctor = doctor
+        patient.doctors_visiting_time = doctor_time
+        patient.doctors_notes = doctor_notes
+        print(patient.doctors_visiting_time)
+        print(patient.doctors_notes)
+        patient.status = status
+        patient.save()
     context = {
         'patient': patient
     }
@@ -135,6 +154,13 @@ def autocomplete(request):
 def autosuggest(response):
     query_original = response.GET.get('term')
     queryset = Patient.objects.filter(name__icontains=query_original)
+    mylist = []
+    mylist += [x.name for x in queryset]
+    return JsonResponse(mylist, safe=False)
+
+def autodoctor(response):
+    query_original = response.GET.get('term')
+    queryset = Doctor.objects.filter(name__icontains=query_original)
     mylist = []
     mylist += [x.name for x in queryset]
     return JsonResponse(mylist, safe=False)

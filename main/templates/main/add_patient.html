@@ -59,6 +59,16 @@
                         <option class="bg-secondary text-white" value="Deceased">Deceased</option>
                     </select>
                 </div>
+
+                <div class="form-field col-md-6">
+                    <select class="input-text"  name="doctor" id="doctor">
+                        {% for doctor in doctors %}
+                            <option class="" value="{{doctor}}">{{doctor}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+
             </div>
 
 

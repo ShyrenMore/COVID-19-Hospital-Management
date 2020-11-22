@@ -161,6 +161,12 @@
       	source: "{% url 'autosuggest' %}"
     });
   	});
+
+    $( function() {
+      $( "#doctor" ).autocomplete({
+      	source: "{% url 'autodoctor' %}"
+    });
+  	});
     </script>
 
     <!-- {% comment %} custom js file {% endcomment %} -->

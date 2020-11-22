@@ -10,4 +10,5 @@ urlpatterns = [
     path("patient_list/", views.patient_list, name="patient_list"),
     path("patient/<str:pk>", views.patient, name="patient"),
     path("autosuggest/", views.autosuggest, name="autosuggest"),
+    path("autodoctor/", views.autodoctor, name="autodoctor"),
 ]
