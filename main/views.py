@@ -70,6 +70,7 @@ def add_patient(request):
         dob = request.POST['dob']
         status = request.POST['status']
         doctor = request.POST['doctor']
+        doctor = Doctor.objects.get(name=doctor)
         print(request.POST)
         patient = Patient.objects.create(
             name = name,
