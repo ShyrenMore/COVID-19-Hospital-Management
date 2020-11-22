@@ -24,7 +24,21 @@
 - run `python manage.py runserver`.
 - Go to `127.0.0.1::8000` in your web browser.
 
-### Screenshots
+## Screenshots
+<hr />
+
+## *login*
+![](https://github.com/ShyrenMore/CodersLegion/blob/master/screenshots/login_form.PNG)
+<h3>The login is only for staff members and admin who will enter staff details in database</h3>
+
+
+
+<!-- ### Clean aesthetic User Interface, which changes dynamically as per the status of patient changes... -->
+
+<!-- ### 1) No login view(public view) -->
+<!-- ![](https://github.com/ShyrenMore/CodersLegion/blob/master/screenshots/dashboard/no_login.png) -->
+
+
 
 <!-- login page -->
 <!-- dashboard(with and without sidenav) -->
