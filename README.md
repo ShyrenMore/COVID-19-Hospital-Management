@@ -29,7 +29,11 @@
 
 ## *login*
 ![](https://github.com/ShyrenMore/CodersLegion/blob/master/screenshots/login_form.PNG)
-<h3>The login is only for staff members and admin who will enter staff details in database</h3>
+<p>The login is only for staff members and admin who will enter staff details in database</p>
+
+## *View Patient list*
+![](https://github.com/ShyrenMore/CodersLegion/blob/master/screenshots/patient_list.PNG)
+<p>The name, bed no, status, and update option are rendered, there is also a typeahead feature and dropdown for bed numbers and doctors in the search panel</p>
 
 
 
